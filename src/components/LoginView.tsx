@@ -1,5 +1,6 @@
 import { generateToken } from '@/api/bringer';
 import React, { useState } from 'react';
+import { InputField } from './InputField';
 
 const LoginView: React.FC = () => {
     const [login, setLogin] = useState('');
@@ -26,42 +27,24 @@ const LoginView: React.FC = () => {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6" onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                Login
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    id="login"
-                                    name="login"
-                                    type="text"
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    value={login}
-                                    onChange={(e) => setLogin(e.target.value)}
-                                />
-                            </div>
-                        </div>
+                        <InputField
+                            label='Login'
+                            name='login'
+                            type='text'
+                            required={true}
+                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                            value={login}
+                            onChange={setLogin} />
 
-                        <div>
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Password
-                                </label>
-                            </div>
-                            <div className="mt-2">
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    autoComplete="current-password"
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </div>
-                        </div>
+                        <InputField
+                            label='Password'
+                            name='password'
+                            type='password'
+                            required={true}
+                            autoComplete="current-password"
+                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                            value={password}
+                            onChange={setPassword} />
 
                         <div>
                             <button
